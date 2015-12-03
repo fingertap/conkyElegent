@@ -1,0 +1,89 @@
+#------------------#
+#     全局设置     #
+#------------------#
+# 是否嵌入桌面，yes -- 是， no -- 否
+background yes
+# 设置变量刷新时间，单位为秒
+update_interval 1
+# 设置cpu和网络采样时间，单位为秒
+net_avg_samples 2
+cpu_avg_samples 2
+# 防止闪烁
+double_buffer yes
+no_buffers yes
+# 文本的缓存最大宽度
+text_buffer_size 2048
+# 支持utf8编码
+override_utf8_locale yes
+
+#------------------#
+#     图形设置     #
+#------------------#
+# 随时显示在桌面，真透明：
+own_window yes
+own_window_type desktop
+own_window_transparent yes
+# 支持gnome3
+own_window_hints undecorated,sticky,skip_taskbar,skip_pager, below
+# 图形设置, 阴影，边框等
+draw_shades no
+draw_outline no
+draw_borders no
+draw_graph_borders no
+
+#------------------#
+#     字体设置     #
+#------------------#
+# 是否使用xft字体（全局字体），一般选是
+use_xft yes
+# 定义全局默认字体
+xftfont 文泉驿等宽微米黑:size=8 
+# 定义是否将结果输出到终端
+out_to_console no
+# 定义自体透明度，范围0～1
+xftalpha 0.5
+# 是否自动转换为大写字母
+uppercase no
+
+#------------------#
+#     窗口设置     #
+#------------------#
+# 设定Conky输出范围距离屏幕边界的像素数量，最小为10像素
+gap_x 10
+gap_y 10
+# 设定Conky在屏幕上输出的位置，可选有：top_left, top_middle, top_right, middle_left,
+#   middle_middel, middle_right, bottom_left, bottom_middle, bottom_right, 可以
+#   用tl, tm, tr, ml, mm, mr, bl, bm, br替代
+alignment tl
+# 设定Conky大小和边框：
+#   minimum_size a b: 宽a（最小280px），高b（最小5px）
+#   border_width a: 宽a（可为0px）
+#   maximum_width a: 最大宽度
+minimum_size 1000 800
+# 当有margin时不能加下面这句
+# border_width 0
+maximum_width 800
+# 设定边界内外的缩进
+border_inner_margin 0
+border_outer_margin 0
+# 默认颜色
+default_color FFFFFF
+# 加载lua
+# lua_load /home/han/examples/clock_rings.lua
+# lua_draw_hook_pre clock_rings
+
+#------------------#
+#     布局设置     #
+#------------------#
+# 变量前用$标记, TEXT表示开始布局
+TEXT
+# 文本用voffset控制上下偏移，用offset控制左右偏移
+# 也可以用goto来指定跳到哪个pixel
+# 一个调用python代码的示范
+# ${exec python /home/han/examples/test.py}
+${voffset 80}
+#===Time===#
+${offset 60}${offset 0}${color2}${font Vintage Straps:size=67}${time %l:%M}${font Vintage Straps:light:size=20}${texeci 60 python /home/han/.conky/AM_PM.py}
+${offset 60}${offset 0}${voffset 10}${font Vintage Straps:light:size=22}${texeci 1800  python /home/han/.conky/date.py}
+${offset 60}${font Vintage Straps:light :size=35}${offset 15}${voffset 10}${texeci 1800 python /home/han/.conky/getTemp.py}掳${font Vintage Straps :size=15}C${font ADELE :size=30}${voffset -20} | ${color #FFFFFF}${image /home/han/.conky/weather/dummy.png -n -p 157,210 -s 50x50}${font Vintage Straps:size=18}${offset 60}${texeci 1800 python /home/han/.conky/printWeather.py}
+${voffset 10}${offset 60}${font Vintage Straps:size=12}${image /home/han/.conky/weather/location.png -p 65,265 -s 20x20}${offset 30}Zhuhai, China
