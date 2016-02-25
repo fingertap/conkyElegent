@@ -83,7 +83,7 @@ TEXT
 # ${exec python /home/han/examples/test.py}
 ${voffset 80}
 #===Time===#
-${offset 60}${offset 0}${color2}${font Vintage Straps:size=67}${time %l:%M}${font Vintage Straps:light:size=20}${texeci 60 python /home/han/.conky/AM_PM.py}
+${offset 60}${offset 0}${color2}${font Vintage Straps:size=67}${texeci 1 python /home/han/.conky/printTime.py}${font Vintage Straps:light:size=20} ${texeci 60 python /home/han/.conky/AM_PM.py}
 ${offset 60}${offset 0}${voffset 10}${font Vintage Straps:light:size=22}${texeci 1800  python /home/han/.conky/date.py}
 ${offset 60}${font Vintage Straps:light :size=35}${offset 15}${voffset 10}${texeci 1800 python /home/han/.conky/getTemp.py}°${font Vintage Straps :size=15}C${font ADELE :size=30}${voffset -20} | ${color #FFFFFF}${image /home/han/.conky/weather/dummy.png -n -p 157,210 -s 50x50}${font Vintage Straps:size=18}${offset 60}${texeci 1800 python /home/han/.conky/printWeather.py}
-${voffset 10}${offset 60}${font Vintage Straps:size=12}${image /home/han/.conky/weather/location.png -p 65,265 -s 20x20}${offset 30}Zhuhai, China
+${voffset 10}${offset 60}${font Vintage Straps:size=12}${image /home/han/.conky/weather/location.png -p 65,265 -s 20x20}${offset 30}${texeci 1800 python /home/han/.conky/printCity.py}, China
