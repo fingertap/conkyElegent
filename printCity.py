@@ -1,2 +1,2 @@
-from config import *
+from CONFIGS import *
 print(CITY+', '+COUNTRY)
