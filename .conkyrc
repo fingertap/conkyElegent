@@ -93,6 +93,8 @@ ${texeci 60 python /home/han/.conky/AM_PM.py}
 # 第二行,日期
 ${offset 60}${voffset 10}${font Vintage Straps:light:size=22}\
 ${texeci 1800  python /home/han/.conky/date.py}
+# 假如存在无线网
+${if_existing /proc/net/route wlan0}
 # 第三行，温度和天气
 ## 温度数值
 ${offset 75}${voffset 10}${font Vintage Straps:light :size=35}\
@@ -100,7 +102,7 @@ ${texeci 1800 python /home/han/.conky/getTemp.py}\
 ## 摄氏度标志和分割的竖线
 掳${font Vintage Straps :size=15}C${font ADELE :size=30}${voffset -20} | \
 ## 天气图片
-${image /home/han/.conky/weather/dummy.png -n -p 150,210 -s 50x50}\
+${image /home/han/.conky/weather/dummy.png -n -p 152,210 -s 50x50}\
 ## 天气描述
 ${offset 55}${voffset -2}${font Vintage Straps:size=18}\
 ${texeci 1800 python /home/han/.conky/printWeather.py}
@@ -110,3 +112,24 @@ ${image /home/han/.conky/weather/location.png -p 65,265 -s 20x20}\
 ## 位置
 ${offset 90}${voffset 15}${font Vintage Straps:size=12}\
 ${texeci 1800 python /home/han/.conky/printCity.py}
+${endif}
+# 假如存在有线网，和无线网重复，因为不支持or
+${if_existing /proc/net/route eth0}
+# 第三行，温度和天气
+## 温度数值
+${offset 75}${voffset 10}${font Vintage Straps:light :size=35}\
+${texeci 1800 python /home/han/.conky/getTemp.py}\
+## 摄氏度标志和分割的竖线
+掳${font Vintage Straps :size=15}C${font ADELE :size=30}${voffset -20} | \
+## 天气图片
+${image /home/han/.conky/weather/dummy.png -n -p 152,210 -s 50x50}\
+## 天气描述
+${offset 55}${voffset -2}${font Vintage Straps:size=18}\
+${texeci 1800 python /home/han/.conky/printWeather.py}
+# 第四行
+## 定位标志图片
+${image /home/han/.conky/weather/location.png -p 65,265 -s 20x20}\
+## 位置
+${offset 90}${voffset 15}${font Vintage Straps:size=12}\
+${texeci 1800 python /home/han/.conky/printCity.py}
+${endif}
