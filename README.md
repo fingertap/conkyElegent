@@ -4,7 +4,7 @@ This is the conky I use on Arch linux.
 After installation of conky, just clone the repo to your home and add a
 soft reference to the configuration file.
 ```
-git clone https://github.com/fingertap/conkyElegent.git $HOME
+git clone https://github.com/fingertap/conkyElegent.git ${HOME}/.conky
 ln -s .conky/.conkyrc .conkyrc
 ```
 
