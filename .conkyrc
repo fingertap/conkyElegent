@@ -21,7 +21,7 @@ override_utf8_locale yes
 #------------------#
 # 随时显示在桌面，真透明：
 own_window yes
-own_window_type desktop 
+#own_window_type desktop 
 own_window_transparent yes
 own_window_argb_visual yes
 # 支持gnome3
@@ -63,7 +63,7 @@ alignment tl
 minimum_size 1000 800
 # 当有margin时不能加下面这句
 # border_width 0
-maximum_width 800
+maximum_width 400
 # 设定边界内外的缩进
 border_inner_margin 0
 border_outer_margin 0
@@ -100,18 +100,18 @@ ${texeci 600 python /home/han/.conky/updateConfig.py}\
 # 第三行，温度和天气
 ## 温度数值
 ${offset 75}${voffset 10}${font Vintage Straps:light :size=35}\
-${texeci 1800 python /home/han/.conky/printTemp.py}\
+${texeci 60 python /home/han/.conky/printTemp.py}\
 ## 摄氏度标志和分割的竖线
 掳${font Vintage Straps :size=15}C${font ADELE :size=30}${voffset -20} | \
 ## 天气图片
 ${image /home/han/.conky/weather/dummy.png -n -p 152,210 -s 50x50}\
 ## 天气描述
 ${offset 55}${voffset -2}${font Vintage Straps:size=18}\
-${texeci 1800 python /home/han/.conky/printWeather.py}
+${texeci 60 python /home/han/.conky/printWeather.py}
 # 第四行
 ## 定位标志图片
 ${image /home/han/.conky/weather/location.png -p 65,265 -s 20x20}\
 ## 位置
 ${offset 90}${voffset 15}${font Vintage Straps:size=12}\
-${texeci 1800 python /home/han/.conky/printCity.py}
+${texeci 60 python /home/han/.conky/printCity.py}
 ${endif}
