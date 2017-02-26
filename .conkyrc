@@ -69,9 +69,7 @@ border_inner_margin 0
 border_outer_margin 0
 # 默认颜色
 default_color FFFFFF
-# 加载lua
-# lua_load /home/han/examples/clock_rings.lua
-# lua_draw_hook_pre clock_rings
+# 加载lua # lua_load /home/han/examples/clock_rings.lua # lua_draw_hook_pre clock_rings
 
 #------------------#
 #     布局设置     #
@@ -114,4 +112,22 @@ ${image /home/han/.conky/weather/location.png -p 65,265 -s 20x20}\
 ## 位置
 ${offset 90}${voffset 15}${font Vintage Straps:size=12}\
 ${texeci 60 python /home/han/.conky/printCity.py}
+# 第五行
+# 第六行
+${image /home/han/.conky/images/PM25.gif -p 40,505 -s 229x37}\
+## PM 2.5
+#${offset 65}${voffset 10}${font Vintage Straps:bold:size=10}PM 2.5
+## PM 2.5数值
+${offset 145}${voffset 200}${font Vintage Straps:size=35}${texeci 60 python /home/han/.conky/printPM25_num.py}\
+${font Vintage Straps:bold:size=10} ${texeci 60 python /home/han/.conky/printPM25_desc.py}
+# 第七行
+## Wind
+${image /home/han/.conky/images/wind.gif -p 40,565 -s 229x37}\
+#${offset 65}${font Vintage Straps:bold:size=10}Wind
+${offset 135}${voffset 20}${font Vintage Straps:size=35} ${texeci 60 python /home/han/.conky/printWind.py}
+# 第八行
+## Humidity
+${image /home/han/.conky/images/humidity.gif -p 40,625 -s 229x37}\
+#${offset 65}${voffset -25}${font Vintage Straps:bold:size=10}Humidity
+${offset 135}${voffset 15}${font Vintage Straps:size=35} ${texeci 60 python /home/han/.conky/printHumidity.py}${font Vintage Straps:size=20} %
 ${endif}

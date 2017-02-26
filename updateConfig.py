@@ -5,6 +5,9 @@ if __name__ == '__main__':
     TARGET_FIG = '/home/han/.conky/weather/na.png'
     TEMPERATURE = 'NA'
     WEATHER = 'NA'
+    HUMIDITY = 'NA'
+    WIND = 'NA'
+    PM25 = 'NA'
     import requests
     try:
         ip = requests.get('http://ipinfo.io/json').json()['ip']
@@ -25,7 +28,15 @@ if __name__ == '__main__':
         TARGET_FIG = '/home/han/.conky/weather/%s.png'%cur_weather_code
     except:
         pass
-        #print('Weather fetch fail')
+    try:
+        URL = 'https://api.waqi.info/feed/here/?token=%s'%AQI_KEY
+        x = requests.get(URL, timeout=5).json()
+        if x['status'] == "ok":
+            PM25 = x['data']['iaqi']['pm25']['v']
+            WIND = x['data']['iaqi']['w']['v']
+            HUMIDITY = x['data']['iaqi']['h']['v']
+    except:
+        pass
     try:
         f = open('/home/han/.conky/CONFIGS.py', 'w')
         f.write('CITY=\'%s\'\n'%CITY)
@@ -33,6 +44,9 @@ if __name__ == '__main__':
         f.write('TARGET_FIG=\'%s\'\n'%TARGET_FIG)
         f.write('TEMPERATURE=\'%s\'\n'%TEMPERATURE)
         f.write('WEATHER=\'%s\'\n'%WEATHER)
+        f.write('PM25=\'%s\'\n'%PM25)
+        f.write('WIND=\'%s\'\n'%WIND)
+        f.write('HUMIDITY=\'%s\'\n'%HUMIDITY)
         f.close()
     except:
         pass
