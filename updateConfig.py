@@ -11,7 +11,7 @@ if __name__ == '__main__':
     import requests
     try:
         ip = requests.get('http://ipinfo.io/json').json()['ip']
-        url = 'https://api.thinkpage.cn/v3/location/search.json?key=%s&q=%s&language=en'%(KEY, ip)
+        url = 'https://api.thinkpage.cn/v3/location/search.json?key=%s&q=%s&language=en'%(TP_KEY, ip)
         details = requests.get(url).json()['results'][0]
         CITY_ID = details['id']
         CITY = details['name']
@@ -20,7 +20,7 @@ if __name__ == '__main__':
         pass
     try:
         # try get the city name with the location information
-        URL = 'https://api.thinkpage.cn/v2/weather/now.json?city=%s&language=en&unit=c&key=%s'%(CITY_ID, KEY)
+        URL = 'https://api.thinkpage.cn/v2/weather/now.json?city=%s&language=en&unit=c&key=%s'%(CITY_ID, TP_KEY)
         x = requests.get(URL, timeout=5).json()
         TEMPERATURE = x['weather'][0]['now']['temperature']
         WEATHER = x['weather'][0]['now']['text']

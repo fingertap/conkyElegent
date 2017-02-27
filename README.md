@@ -8,6 +8,12 @@ git clone https://github.com/fingertap/conkyElegent.git ${HOME}/.conky
 ln -s .conky/.conkyrc .conkyrc
 ```
 
+You will also need to get two keys from the [thinkpage](http://www.thinkpage.cn/) and [WAQI](http://aqicn.org/) and save them as key.py in .conky directory:
+```python
+TP_KEY = your_thinkpage_key_paste_here
+AQI_KEY = your_AQI_key_paste_here
+```
+
 ## Screenshot
 ![conky_screenshot](images/conky_screenshot.png)
 ## Notice
