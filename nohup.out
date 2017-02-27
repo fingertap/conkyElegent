@@ -63,3 +63,7 @@ INFO: loading config from /etc/shadowsocks/config.json
 2017-02-27 16:32:28 INFO     connecting www.google.com:443 from 127.0.0.1:43158
 2017-02-27 16:32:33 ERROR    [Errno 110] Connection timed out
 2017-02-27 16:32:37 ERROR    [Errno 110] Connection timed out
+2017-02-27 16:34:33 ERROR    [Errno 110] Connection timed out
+2017-02-27 16:34:38 ERROR    [Errno 110] Connection timed out
+2017-02-27 16:41:18 INFO     connecting notifications.google.com:443 from 127.0.0.1:43200
+2017-02-27 16:41:31 INFO     connecting github.com:443 from 127.0.0.1:43204
