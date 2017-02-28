@@ -8,7 +8,9 @@ if __name__ == '__main__':
     HUMIDITY = 'NA'
     WIND = 'NA'
     PM25 = 'NA'
+    UPDATE_TIME = 'NA'
     import requests
+    import time
     try:
         ip = requests.get('http://ipinfo.io/json').json()['ip']
         url = 'https://api.thinkpage.cn/v3/location/search.json?key=%s&q=%s&language=en'%(TP_KEY, ip)
@@ -47,6 +49,7 @@ if __name__ == '__main__':
         f.write('PM25=\'%s\'\n'%PM25)
         f.write('WIND=\'%s\'\n'%WIND)
         f.write('HUMIDITY=\'%s\'\n'%HUMIDITY)
+        f.write('UPDATE_TIME=\'%s\''%time.strftime('%Y-%m-%d %H:%M:%S', time.localtime()))
         f.close()
     except:
         pass
