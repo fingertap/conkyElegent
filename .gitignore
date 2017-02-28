@@ -1,3 +1,5 @@
 key.py
 .gitignore
 __pycache__
+*.pyc
+CONFIGS.py

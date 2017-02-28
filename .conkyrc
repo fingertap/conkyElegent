@@ -130,5 +130,5 @@ ${offset 135}${voffset 20}${font Vintage Straps:size=35} ${texeci 60 python /hom
 ${image /home/han/.conky/images/humidity.gif -p 40,625 -s 229x37}\
 #${offset 65}${voffset -25}${font Vintage Straps:bold:size=10}Humidity
 ${offset 135}${voffset 15}${font Vintage Straps:size=35} ${texeci 60 python /home/han/.conky/printHumidity.py}${font Vintage Straps:size=20} %
-${offset 150}${font Vintage Straps:bold:size=10}${texeci 600 python /home/han/.conky/print_update_time.py}
+${offset 137}${voffset 10}${font Vintage Straps:bold:size=10}Updated: ${texeci 600 python /home/han/.conky/print_update_time.py}
 ${endif}
