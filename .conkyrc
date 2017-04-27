@@ -89,7 +89,7 @@ ${texeci 1 python /home/han/.conky/printTime.py}\
 ${offset 5}${font Vintage Straps:light:size=19}\
 ${texeci 60 python /home/han/.conky/AM_PM.py}
 # 第二行,日期
-${offset 60}${voffset 10}${font Vintage Straps:light:size=22}\
+${offset 60}${voffset 10}${font Vintage Straps::size=22}\
 ${texeci 1800  python /home/han/.conky/date.py}
 # 假如存在无线网
 ${if_existing /proc/net/route wlp3s0}\
@@ -110,7 +110,7 @@ ${texeci 60 python /home/han/.conky/printWeather.py}
 ## 定位标志图片
 ${image /home/han/.conky/weather/location.png -p 65,265 -s 20x20}\
 ## 位置
-${offset 90}${voffset 15}${font Vintage Straps:size=12}\
+${offset 90}${voffset 15}${font Vintage Straps:bold:size=12}\
 ${texeci 60 python /home/han/.conky/printCity.py}
 # 第五行
 # 第六行
@@ -130,5 +130,5 @@ ${offset 135}${voffset 20}${font Vintage Straps:size=35} ${texeci 60 python /hom
 ${image /home/han/.conky/images/humidity.gif -p 40,625 -s 229x37}\
 #${offset 65}${voffset -25}${font Vintage Straps:bold:size=10}Humidity
 ${offset 135}${voffset 15}${font Vintage Straps:size=35} ${texeci 60 python /home/han/.conky/printHumidity.py}${font Vintage Straps:size=20} %
-${offset 137}${voffset 10}${font Vintage Straps:bold:size=10}Updated: ${texeci 600 python /home/han/.conky/print_update_time.py}
+${offset 137}${voffset 10}${font Vintage Straps:bold:size=10}Updated: ${texeci 60 python /home/han/.conky/print_update_time.py}
 ${endif}
